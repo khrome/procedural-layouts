@@ -5,23 +5,12 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.roguelike = exports.Roguelike = void 0;
 var _random = require("./random.cjs");
-/*
-import { isBrowser, isJsDom } from 'browser-or-node';
-import * as mod from 'module';
-import * as path from 'path';
-let internalRequire = null;
-if(typeof require !== 'undefined') internalRequire = require;
-const ensureRequire = ()=> (!internalRequire) && (internalRequire = mod.createRequire(import.meta.url));
-//*/
-
 /**
- * A JSON object
- * @typedef { object } JSON
+ * Originally written by 
+ *
+ * Originally written on June 12, 2013
+ * Originally hosted at https://github.com/PhobosRising/javascript-roguelike-map-generator
  */
-
-//const MAX_X = 201;
-//const MAX_Y = 201;
-//const DIR = ['n', 'e', 's', 'w'];
 
 //const rand = require('../../utility/random/index.js');
 
@@ -68,8 +57,7 @@ class Roguelike {
     this.want_special = !!config.special;
   }
   render(options = {}) {
-    var level = new Roguelike(options);
-    var built = level.build();
+    var built = this.build();
     var world = built.world;
 
     //var end = new Date();

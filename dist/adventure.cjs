@@ -5,18 +5,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Adventure = void 0;
 var _random = require("./random.cjs");
-/*
-import { isBrowser, isJsDom } from 'browser-or-node';
-import * as mod from 'module';
-import * as path from 'path';
-let internalRequire = null;
-if(typeof require !== 'undefined') internalRequire = require;
-const ensureRequire = ()=> (!internalRequire) && (internalRequire = mod.createRequire(import.meta.url));
-//*/
-
 /**
- * A JSON object
- * @typedef { object } JSON
+ * Originally written for a game called "Isolated" in collaboration with Andrew Beattie and Greg Schoberth
+ *
+ * Originally written on June 12, 2013
+ * Originally hosted at https://github.com/PhobosRising/javascript-roguelike-map-generator
  */
 
 const MAX_X = 201;
@@ -171,7 +164,8 @@ class Adventure {
       this.addDoor(parentRoom.id, newRoomId);
     }
     const CHILD_THRESHOLD = this.rooms.length / (this.maxKeys + 1);
-    let roomToBeLocked = this.getHighestDistanceRoom().id;
+    const lockedRoom = this.getHighestDistanceRoom();
+    let roomToBeLocked = lockedRoom.id;
     this.setExit(roomToBeLocked);
     for (let i = 0; i < this.maxKeys; i++) {
       let ascended = this.findRoomParentWithAtMostChildren(this.rooms[roomToBeLocked], CHILD_THRESHOLD);

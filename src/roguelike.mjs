@@ -1,20 +1,9 @@
-/*
-import { isBrowser, isJsDom } from 'browser-or-node';
-import * as mod from 'module';
-import * as path from 'path';
-let internalRequire = null;
-if(typeof require !== 'undefined') internalRequire = require;
-const ensureRequire = ()=> (!internalRequire) && (internalRequire = mod.createRequire(import.meta.url));
-//*/
-
 /**
- * A JSON object
- * @typedef { object } JSON
+ * Originally written by 
+ *
+ * Originally written on June 12, 2013
+ * Originally hosted at https://github.com/PhobosRising/javascript-roguelike-map-generator
  */
-
-//const MAX_X = 201;
-//const MAX_Y = 201;
-//const DIR = ['n', 'e', 's', 'w'];
 
 import { random } from './random.mjs';
 
@@ -72,8 +61,7 @@ export class Roguelike{
     }
     
     render(options={}){
-        var level = new Roguelike(options);
-        var built = level.build();
+        var built = this.build();
         var world = built.world;
         
         //var end = new Date();

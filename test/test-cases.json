@@ -31,6 +31,22 @@
                 "max_height": 7
               }
             }
+        },
+        {
+            "seed": "a-large-level-seed",
+            "options": {
+                "width": 64,
+                "height": 64,
+                "retry": 100, 
+                "special": true,
+                "room": {
+                    "ideal": 35,
+                    "min_width": 3,
+                    "max_width": 7,
+                    "min_height": 3,
+                    "max_height": 7
+                }
+            }
         }
     ],
     "adventure": [
