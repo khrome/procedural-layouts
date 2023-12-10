@@ -58,6 +58,8 @@
         "stubs": [
             "express",
             "module",
+            "fs",
+            "os",
             "path"
         ],
         "shims": {
@@ -72,8 +74,9 @@
         "@babel/plugin-transform-modules-commonjs": "^7.22.5",
         "@environment-safe/chai": "^0.1.0",
         "@environment-safe/commonjs-builder": "^0.0.3",
+        "@environment-safe/file": "^0.3.1",
         "@environment-safe/jsdoc-builder": "^0.0.2",
-        "@open-automaton/moka": "^0.0.4",
+        "@open-automaton/moka": "^0.5.2",
         "babel-plugin-search-and-replace": "^1.1.1",
         "babel-plugin-transform-import-meta": "^2.2.0",
         "chai": "^4.3.7",
@@ -82,10 +85,11 @@
         "mocha": "^10.2.0"
     },
     "scripts": {
-        "lint": "./node_modules/.bin/eslint src/*.mjs test/*.mjs",
+        "lint": "./node_modules/.bin/eslint src/*.mjs",
         "test": "npm run import-test; npm run browser-test; npm run require-test",
-        "import-test": "./node_modules/.bin/mocha test/test.mjs",
-        "require-test": "./node_modules/.bin/mocha test/test.cjs",
+        "generate-test-data": "node test/generateTestData.mjs",
+        "import-test": "cd test; ../node_modules/.bin/mocha test.mjs",
+        "require-test": "cd test; ../node_modules/.bin/mocha test.cjs",
         "build-commonjs": "./node_modules/@environment-safe/commonjs-builder/bin/build.mjs",
         "local-server": "open 'http://localhost:8085/' ; npx http-server -p 8085",
         "headless-browser-test": "npm run headless-chrome-test; npm run headless-firefox-test; npm run headless-safari-test",
@@ -100,6 +104,7 @@
         "prepare": "husky install"
     },
     "dependencies": {
+        "@environment-safe/package": "^0.2.0",
         "browser-or-node": "^2.1.1"
     }
 }
