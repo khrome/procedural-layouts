@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { Adventure, Roguelike } from '../src/index.mjs';
+import { Adventure, Roguelike, Zelda } from '../src/index.mjs';
 import { seed } from '../src/random.mjs';
 import testCases from "./test-cases.json" assert { type: "json" };
 
@@ -19,6 +19,17 @@ testCases.roguelike.forEach((testCase)=>{
     seed(testCase.seed);
     const result = (new Roguelike(testCase.options)).render();
     const fileName = `./test-data/${testCase.seed}-roguelike.text`;
+    console.log(fileName, result);
+    fs.writeFileSync(
+        fileName, 
+        result
+    );
+});
+
+testCases.zelda.forEach((testCase)=>{
+    seed(testCase.seed);
+    const result = (new Zelda(testCase.options)).render();
+    const fileName = `./test-data/${testCase.seed}-zelda.text`;
     console.log(fileName, result);
     fs.writeFileSync(
         fileName, 

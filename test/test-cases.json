@@ -64,5 +64,27 @@
                 "keys": 0 
             }
         }
+    ],
+    "zelda": [
+        {
+            "seed" : "a-zelda-seed",
+            "options" : {
+                "rooms": 10, 
+                "keys": 3,
+                "special": 2,
+                "width": 20,
+                "height": 16
+            }
+        },
+        {
+            "seed" : "another-zelda-seed",
+            "options" : {
+                "rooms": 10, 
+                "keys": 3,
+                "special": 2,
+                "width": 20,
+                "height": 16
+            }
+        }
     ]
 }

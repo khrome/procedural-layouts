@@ -1,5 +1,5 @@
 /**
- * Originally written by 
+ * Originally written by Thomas Hunter II
  *
  * Originally written on June 12, 2013
  * Originally hosted at https://github.com/PhobosRising/javascript-roguelike-map-generator
@@ -60,8 +60,8 @@ export class Roguelike{
         this.want_special = !!config.special;
     }
     
-    render(options={}){
-        var built = this.build();
+    render(options={}, blt){
+        var built = blt || this.build();
         var world = built.world;
         
         //var end = new Date();
@@ -596,3 +596,6 @@ function randomOdd(min_raw, max_raw) {
     result += 1;
     return result;
 }
+
+export const Rogue = Roguelike;
+export const rogue = roguelike;

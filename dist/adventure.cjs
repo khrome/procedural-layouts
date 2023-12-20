@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Adventure = void 0;
+exports.adventure = exports.Adventure = void 0;
 var _random = require("./random.cjs");
 /**
  * Originally written for a game called "Isolated" in collaboration with Andrew Beattie and Greg Schoberth
@@ -32,9 +32,10 @@ class Adventure {
       console.error(`Key count ${this.maxKeys} is greater than rooms ${this.maxRooms} minus two (entrance and exit). Reducing keys by two.`);
       this.maxKeys = this.maxRooms - 2;
     }
+    this.build = this.generate;
     this.reset();
   }
-  render(options = {}) {
+  render(options = {}, bld) {
     const NULL_KEY = '\x1b[1;37m';
     const ENTER_EXIT = '\x1b[7m';
     const KEY_COLORS = {
@@ -45,7 +46,7 @@ class Adventure {
       4: '\x1b[1;35m' || options['4'],
       5: '\x1b[1;36m' || options['5']
     };
-    const generated = this.generate();
+    const generated = bld || this.generate();
     const grid = generated.grid;
     let result = '';
     for (let y = 0; y < generated.size.height; y++) {
@@ -534,3 +535,8 @@ class Adventure {
   }
 }
 exports.Adventure = Adventure;
+const adventure = function (config) {
+  var level = new Adventure(config);
+  return level.build();
+};
+exports.adventure = adventure;

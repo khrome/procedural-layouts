@@ -3,10 +3,10 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.roguelike = exports.Roguelike = void 0;
+exports.roguelike = exports.rogue = exports.Roguelike = exports.Rogue = void 0;
 var _random = require("./random.cjs");
 /**
- * Originally written by 
+ * Originally written by Thomas Hunter II
  *
  * Originally written on June 12, 2013
  * Originally hosted at https://github.com/PhobosRising/javascript-roguelike-map-generator
@@ -56,8 +56,8 @@ class Roguelike {
     this.retry_count = config.retry || DEFAULT.IDEAL_COUNT;
     this.want_special = !!config.special;
   }
-  render(options = {}) {
-    var built = this.build();
+  render(options = {}, blt) {
+    var built = blt || this.build();
     var world = built.world;
 
     //var end = new Date();
@@ -504,3 +504,5 @@ function randomOdd(min_raw, max_raw) {
   result += 1;
   return result;
 }
+const Rogue = exports.Rogue = Roguelike;
+const rogue = exports.rogue = roguelike;
